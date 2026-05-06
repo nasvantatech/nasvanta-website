@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasvanta Tech Solution - Professional IT Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            text-align: center;
+            font-size: 1.1em;
+            font-style: italic;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: background-color 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            background-color: #667eea;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: #667eea;
+            margin-bottom: 25px;
+            font-size: 2em;
+            border-bottom: 3px solid #764ba2;
+            padding-bottom: 10px;
+        }
+
+        section h3 {
+            color: #764ba2;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .mission-vision-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+        }
+
+        .mission-vision-item h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .service-card {
+            background: #f9f9f9;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 5px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .service-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .team-member {
+            text-align: center;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .team-member h4 {
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .team-member p {
+            color: #764ba2;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .testimonial-card {
+            background: #f0f4ff;
+            border-left: 4px solid #764ba2;
+            padding: 20px;
+            border-radius: 5px;
+            font-style: italic;
+        }
+
+        .testimonial-card .stars {
+            color: #ffc107;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #667eea;
+            margin-top: 10px;
+            font-style: normal;
+        }
+
+        .faq {
+            margin-top: 20px;
+        }
+
+        .faq-item {
+            background: #f9f9f9;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #764ba2;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 15px;
+            color: #555;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        .response-time {
+            background: #e8f4f8;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .info-item {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-item h3 {
+            color: #764ba2;
+            margin-bottom: 8px;
+        }
+
+        .info-item p {
+            color: #666;
+        }
+
+        .info-item a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .info-item a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .contact-form,
+        .contact-info {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="phone"],
+        input[type="subject"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="phone"]:focus,
+        input[type="subject"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .social-links {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .social-links h3 {
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            padding: 8px 15px;
+            margin-right: 10px;
+            background-color: #f0f0f0;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #667eea;
+            color: white;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-right: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav a {
+                text-align: center;
+            }
+
+            section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>🚀 Nasvanta Tech Solution Ltd</h1>
+        <p>Your Professional Technology Partner for Success</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#mission">Mission & Vision</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- ABOUT US SECTION -->
+        <section id="about">
+            <h2>About Us</h2>
+            <p>Nasvanta Tech Solution Ltd is a leading technology company dedicated to providing innovative and reliable
+                IT solutions. With years of experience in the industry, we have successfully served hundreds of clients
+                across various sectors, delivering cutting-edge technology services that transform businesses and
+                enhance their digital presence.</p>
+
+            <p style="margin-top: 15px;">Our commitment to excellence, customer satisfaction, and technological
+                advancement sets us apart. We pride ourselves on understanding our clients' unique needs and delivering
+                customized solutions that exceed expectations.</p>
+
+            <div style="margin-top: 20px; padding: 20px; background: #f0f4ff; border-radius: 8px;">
+                <h3 style="margin-top: 0; color: #667eea;">Why Choose Nasvanta?</h3>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>✓ Expert Team with 10+ years combined experience</li>
+                    <li>✓ 24/7 Customer Support</li>
+                    <li>✓ Fast Response Time & Quick Solutions</li>
+                    <li>✓ Affordable & Transparent Pricing</li>
+                    <li>✓ Proven Track Record of Success</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- MISSION & VISION SECTION -->
+        <section id="mission">
+            <h2>Our Mission & Vision</h2>
+            <div class="mission-vision">
+                <div class="mission-vision-item">
+                    <h3>🎯 Our Mission</h3>
+                    <p>To empower businesses through innovative technology solutions that drive growth, efficiency, and
+                        digital transformation. We are committed to delivering exceptional quality services while
+                        building long-lasting partnerships with our clients.</p>
+                </div>
+                <div class="mission-vision-item">
+                    <h3>👁️ Our Vision</h3>
+                    <p>To become the most trusted and reliable technology solutions provider in the region, recognized
+                        for our innovation, integrity, and customer-centric approach. We aim to help businesses thrive
+                        in the digital age.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services">
+            <h2>Our Services</h2>
+            <p>We offer a comprehensive range of technology services tailored to meet your business needs:</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h4>💻 IT Consulting</h4>
+                    <p>Strategic IT planning and consulting to optimize your technology infrastructure and improve
+                        business outcomes.</p>
+                </div>
+                <div class="service-card">
+                    <h4>🔧 Technical Support</h4>
+                    <p>24/7 professional technical support for all your IT issues, ensuring minimal downtime and maximum
+                        productivity.</p>
+                </div>
+                <div class="service-card">
+                    <h4>🌐 Web Development</h4>
+                    <p>Custom web design and development services to create stunning, responsive websites for your
+                        business.</p>
+                </div>
+                <div class="service-card">
+                    <h4>🔒 Cybersecurity</h4>
+                    <p>Comprehensive security solutions to protect your business from threats and ensure data protection
+                        compliance.</p>
+                </div>
+                <div class="service-card">
+                    <h4>☁️ Cloud Services</h4>
+                    <p>Cloud infrastructure setup, migration, and management for scalable and flexible business
+                        solutions.</p>
+                </div>
+                <div class="service-card">
+                    <h4>📱 Mobile App Development</h4>
+                    <p>Professional mobile application development for iOS and Android platforms tailored to your
+                        business needs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEAM SECTION -->
+        <section id="team">
+            <h2>Meet Our Expert Team</h2>
+            <p>Our dedicated team of professionals is ready to serve you with expertise and commitment:</p>
+            <div class="team-grid">
+                <div class="team-member">
+                    <h4>Nasir</h4>
+                    <p>Technical Director</p>
+                    <p style="font-size: 0.9em; color: #666;">Expert in IT infrastructure and solutions</p>
+                    <a href="tel:07066033003" style="color: #667eea;">📞 Connect</a>
+                </div>
+                <div class="team-member">
+                    <h4>Muhammad</h4>
+                    <p>Customer Support Lead</p>
+                    <p style="font-size: 0.9em; color: #666;">Dedicated to client satisfaction</p>
+                    <a href="mailto:nasvantatech@gmail.com" style="color: #667eea;">📧 Email</a>
+                </div>
+                <div class="team-member">
+                    <h4>Abdullahi</h4>
+                    <p>Development Manager</p>
+                    <p style="font-size: 0.9em; color: #666;">Web & mobile development specialist</p>
+                    <a href="tel:07066033003" style="color: #667eea;">📞 Connect</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION -->
+        <section id="testimonials">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Nasvanta Tech Solution provided exceptional service. Their team was professional, responsive,
+                        and delivered exactly what we needed. Highly recommended!"</p>
+                    <div class="testimonial-author">- Abdullahi, Tech Manager</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Outstanding support and technical expertise. They solved our infrastructure issues quickly and
+                        efficiently. Great value for money!"</p>
+                    <div class="testimonial-author">- Nasir Ibrahim Nasir, Business Owner</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Professional team that understands our business needs. They've been instrumental in our digital
+                        transformation journey. Thank you!"</p>
+                    <div class="testimonial-author">- Nasir Ibrahim Nasir, CEO</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESPONSE TIME SECTION -->
+        <section>
+            <h2>Our Commitment to You</h2>
+            <div class="response-time">
+                <h3 style="margin-top: 0;">⚡ Response Time Guarantee</h3>
+                <p><strong>We guarantee:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>✓ Initial response within <span class="badge">1 hour</span> for urgent issues</li>
+                    <li>✓ Standard support response within <span class="badge">4 hours</span></li>
+                    <li>✓ 24/7 availability for emergency support</li>
+                    <li>✓ Professional and courteous service at all times</li>
+                    <li>✓ Transparent communication and regular updates</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What types of services do you offer?</span>
+                        <span style="font-size: 1.2em;">+</span>
+                    </div>
+                    <div class="faq-answer">We offer IT consulting, technical support, web development, cybersecurity,
+                        cloud services, and mobile app development tailored to your business needs.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How quickly can you respond to support requests?</span>
+                        <span style="font-size: 1.2em;">+</span>
+                    </div>
+                    <div class="faq-answer">We guarantee initial response within 1 hour for urgent issues and 4 hours
+                        for standard support requests. Our team is available 24/7.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Do you provide after-hours support?</span>
+                        <span style="font-size: 1.2em;">+</span>
+                    </div>
+                    <div class="faq-answer">Yes, we provide 24/7 support including weekends and holidays. Emergency
+                        issues are handled immediately by our professional team.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What is your pricing model?</span>
+                        <span style="font-size: 1.2em;">+</span>
+                    </div>
+                    <div class="faq-answer">Our pricing is transparent and customized based on your specific needs. We
+                        offer competitive rates and various service packages. Contact us for a detailed quote.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can you help with data migration?</span>
+                        <span style="font-size: 1.2em;">+</span>
+                    </div>
+                    <div class="faq-answer">Absolutely! We specialize in safe and secure data migration to cloud
+                        platforms or new systems with minimal downtime.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How do I get started with your services?</span>
+                        <span style="font-size: 1.2em;">+</span>
+                    </div>
+                    <div class="faq-answer">Simply contact us through the form below, call us, or email. We'll schedule
+                        a consultation to understand your needs and provide a customized proposal.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category">Service Category</label>
+                            <select id="category" name="category">
+                                <option>Select a category</option>
+                                <option>IT Consulting</option>
+                                <option>Technical Support</option>
+                                <option>Web Development</option>
+                                <option>Cybersecurity</option>
+                                <option>Cloud Services</option>
+                                <option>Mobile App Development</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+
+                    <div class="info-item">
+                        <h3>📧 Email</h3>
+                        <p><a href="mailto:nasvantatech@gmail.com">nasvantatech@gmail.com</a></p>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>📱 Phone</h3>
+                        <p><a href="tel:07066033003">07066033003</a></p>
+                        <p style="font-size: 0.9em; color: #666;">Available 24/7</p>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>📍 Address</h3>
+                        <p>Nasarawa Kano State<br>Nigeria</p>
+                    </div>
+
+                    <div class="info-item">
+                        <h3>⏰ Business Hours</h3>
+                        <p>24/7 Support<br>
+                            Always Available</p>
+                    </div>
+
+                    <div class="social-links">
+                        <h3>Follow Us</h3>
+                        <a href="https://facebook.com" target="_blank">Facebook</a>
+                        <a href="https://twitter.com" target="_blank">Twitter</a>
+                        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                        <a href="https://instagram.com" target="_blank">Instagram</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Nasvanta Tech Solution Ltd. All rights reserved. | Professional IT Solutions & Support</p>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('span:last-child');
+
+            // Close all other FAQs
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                if (item !== answer) {
+                    item.classList.remove('active');
+                }
+            });
+
+            // Toggle current FAQ
+            answer.classList.toggle('active');
+            icon.textContent = answer.classList.contains('active') ? '−' : '+';
+        }
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const category = document.getElementById('category').value;
+
+            alert(`Thank you, ${name}! Your message has been received.\n\nWe will contact you at ${email} within 1 hour regarding "${subject}".\n\nCategory: ${category}\n\nBest regards,\nNasvanta Tech Solution Team`);
+
+            this.reset();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
